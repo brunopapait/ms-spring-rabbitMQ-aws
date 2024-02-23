@@ -1,29 +1,25 @@
-package br.com.papait.bruno.propostaapp.entity;
+package br.com.papait.bruno.propostaapp.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class UsuarioEntity implements Serializable {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PropostaResponseDto {
   private Long id;
-
   private String nome;
   private String sobrenome;
-  private String cpf;
   private String telefone;
+  private String cpf;
   private BigDecimal renda;
-  @OneToOne(mappedBy = "usuario")
-  private PropostaEntity proposta;
+  private BigDecimal valorSolicitado;
+  private Long prazoPagamento;
+  private Boolean aprovado;
+  private String observacao;
 }
