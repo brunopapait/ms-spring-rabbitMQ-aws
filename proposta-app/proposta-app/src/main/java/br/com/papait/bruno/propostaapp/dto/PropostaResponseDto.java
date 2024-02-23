@@ -20,6 +20,6 @@ public class PropostaResponseDto {
   private BigDecimal renda;
   private BigDecimal valorSolicitado;
   private Long prazoPagamento;
-  private Boolean aprovado;
+  private Boolean aprovada;
   private String observacao;
 }
