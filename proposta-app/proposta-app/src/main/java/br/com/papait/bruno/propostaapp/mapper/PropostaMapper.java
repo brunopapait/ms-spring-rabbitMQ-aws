@@ -5,9 +5,12 @@ import br.com.papait.bruno.propostaapp.dto.PropostaResponseDto;
 import br.com.papait.bruno.propostaapp.entity.PropostaEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface PropostaMapper {
+
+  PropostaMapper INSTANCE = Mappers.getMapper(PropostaMapper.class);
 
 
   @Mapping(target = "usuario.nome", source = "nome")
