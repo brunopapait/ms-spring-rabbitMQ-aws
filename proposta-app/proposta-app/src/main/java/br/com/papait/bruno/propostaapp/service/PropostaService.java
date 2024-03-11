@@ -7,6 +7,8 @@ import br.com.papait.bruno.propostaapp.repository.PropostaRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @AllArgsConstructor
 public class PropostaService {
@@ -18,5 +20,10 @@ public class PropostaService {
     this.propostaRepository.save(proposta);
 
     return PropostaMapper.INSTANCE.convertPropostaEntityToDto(proposta);
+  }
+
+  public List<PropostaResponseDto> obterPropostas() {
+    var propostas = this.propostaRepository.findAll();
+    return propostas.stream().map(PropostaMapper.INSTANCE::convertPropostaEntityToDto).toList();
   }
 }
