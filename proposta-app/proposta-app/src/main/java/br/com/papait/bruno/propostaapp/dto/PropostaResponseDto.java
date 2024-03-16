@@ -18,7 +18,7 @@ public class PropostaResponseDto {
   private String telefone;
   private String cpf;
   private BigDecimal renda;
-  private BigDecimal valorSolicitado;
+  private String valorSolicitadoFmt;
   private Long prazoPagamento;
   private Boolean aprovada;
   private String observacao;
