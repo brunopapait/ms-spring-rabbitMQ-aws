@@ -14,12 +14,16 @@ import java.util.List;
 public class PropostaService {
 
   private final PropostaRepository propostaRepository;
+  private NotificacaoService notificacaoService;
 
   public PropostaResponseDto criarProposta(final PropostaRequestDto propostaRequestDto) {
     var proposta = PropostaMapper.INSTANCE.convertDtoToPropostaEntity(propostaRequestDto);
     this.propostaRepository.save(proposta);
 
-    return PropostaMapper.INSTANCE.convertPropostaEntityToDto(proposta);
+    var propostaResponse =  PropostaMapper.INSTANCE.convertPropostaEntityToDto(proposta);
+    this.notificacaoService.enviarNotificacao(propostaResponse, "proposta-pendente.ex");
+
+    return propostaResponse;
   }
 
   public List<PropostaResponseDto> obterPropostas() {
