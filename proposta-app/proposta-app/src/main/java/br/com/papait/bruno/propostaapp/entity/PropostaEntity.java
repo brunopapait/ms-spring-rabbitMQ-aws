@@ -1,5 +1,6 @@
 package br.com.papait.bruno.propostaapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,5 +29,6 @@ public class PropostaEntity implements Serializable {
 
   @OneToOne(cascade = CascadeType.PERSIST)
   @JoinColumn(name = "id_usuario")
+  @JsonManagedReference
   private UsuarioEntity usuario;
 }

@@ -15,7 +15,6 @@ public interface PropostaMapper {
 
   PropostaMapper INSTANCE = Mappers.getMapper(PropostaMapper.class);
 
-
   @Mapping(target = "usuario.nome", source = "nome")
   @Mapping(target = "usuario.sobrenome", source = "sobrenome")
   @Mapping(target = "usuario.cpf", source = "cpf")
@@ -23,7 +22,7 @@ public interface PropostaMapper {
   @Mapping(target = "usuario.renda", source = "renda")
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "aprovada", ignore = true)
-  @Mapping(target = "integrada", ignore = true)
+  @Mapping(target = "integrada", constant = "true")
   @Mapping(target = "observacao", ignore = true)
   PropostaEntity convertDtoToPropostaEntity(PropostaRequestDto propostaRequestDto);
 

@@ -1,5 +1,6 @@
 package br.com.papait.bruno.propostaapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +26,6 @@ public class UsuarioEntity implements Serializable {
   private String telefone;
   private BigDecimal renda;
   @OneToOne(mappedBy = "usuario")
+  @JsonBackReference
   private PropostaEntity proposta;
 }
